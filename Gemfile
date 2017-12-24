@@ -35,11 +35,20 @@ gem 'rack-cors'
 # APi documentation
 gem 'swagger-docs'
 
+# Use Factory Girl for generating random test data
+gem 'factory_girl_rails', '~> 4.9.0'
+
+# Fake content generator
+gem 'faker', '~> 1.8.7'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Use Factory Girl for generating random test data
-  gem 'factory_girl_rails', '~> 4.9.0'
+
+  gem 'awesome_print'
+  gem 'rspec-rails', '~> 3.7.2'
+  gem 'dotenv-rails', '~> 2.2.1'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -47,6 +56,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'shoulda-matchers', '~> 3.0.1'
+  gem 'simplecov', '~> 0.12.0', require: nil
+  gem 'database_cleaner', '~> 1.5.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
