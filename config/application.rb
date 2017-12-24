@@ -30,5 +30,13 @@ module CourseManagement
     end
 
     config.api_only = true
+
+    config.cache_store = :redis_store, {
+      expires_in: 90.minutes,
+      namespace: 'course_management_application_test',
+      host: 'localhost',
+      port: 6379,
+      db: 0
+    }
   end
 end
