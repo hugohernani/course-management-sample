@@ -38,5 +38,7 @@ module CourseManagement
       port: 6379,
       db: 0
     }
+
+    config.middleware.use Rack::Attack
   end
 end
