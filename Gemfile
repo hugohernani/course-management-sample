@@ -39,7 +39,7 @@ gem 'rack-cors'
 gem 'swagger-docs'
 
 # Use Factory Girl for generating random test data
-gem 'factory_girl_rails', '~> 4.9.0'
+gem 'factory_bot_rails', '~> 4.8.2'
 
 # Fake content generator
 gem 'faker', '~> 1.8.7'
@@ -64,7 +64,7 @@ end
 group :test do
   gem 'shoulda-matchers', '~> 3.0.1'
   gem 'simplecov', '~> 0.12.0', require: nil
-  gem 'database_cleaner', '~> 1.5.3'
+  gem 'database_cleaner', '~> 1.6.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
