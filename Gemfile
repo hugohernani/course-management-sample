@@ -51,6 +51,10 @@ gem 'api-pagination', '~> 4.6.3'
 # Searching Strategy
 gem 'ransack', '~> 1.8.3'
 
+# Worker
+gem 'sinatra', github: 'sinatra/sinatra', ref: "88a1ba7bfb2262b68391d2490dbb440184b9f838"
+gem 'sidekiq', '~> 5.0.5'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
