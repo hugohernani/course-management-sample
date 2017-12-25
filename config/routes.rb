@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     namespace :v1, path: '', constraints: ApiVersionConstraint.new(version: 1) do
       resources :teachers
       resources :students
+      resources :courses
     end
   end
 end
