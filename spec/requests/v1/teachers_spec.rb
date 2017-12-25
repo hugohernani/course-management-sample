@@ -34,8 +34,9 @@ RSpec.describe 'Teachers API', type: :request do
   end
 
   describe 'GET /teachers/:id' do
+    let(:included_associations){ nil }
     before do
-      get "/teachers/#{teacher_id}", params: {}, headers: headers
+      get "/teachers/#{teacher_id}", params: {include: included_associations}, headers: headers
     end
 
     context 'when the teacher exists' do
@@ -52,10 +53,19 @@ RSpec.describe 'Teachers API', type: :request do
       end
     end
 
-    context 'when the teacher does not exist' do
+    context 'when teacher does not exist' do
       let(:teacher_id){ 99999999 }
       it 'returns status 404' do
         expect(response).to have_http_status(:not_found)
+      end
+    end
+
+    context 'when teacher has associations' do
+      let(:included_associations){ 'courses' }
+      let(:teacher_id){ create(:teacher, :with_courses).id }
+
+      it 'returns json data with associations as per json:api spec' do
+        expect(json_body).to be_jsonapi_assoc_match('teachers')
       end
     end
   end

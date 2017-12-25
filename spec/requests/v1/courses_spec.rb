@@ -34,8 +34,9 @@ RSpec.describe "Courses", type: :request do
   end
 
   describe 'GET /courses/:id' do
+    let(:included_associations){ nil }
     before do
-      get "/courses/#{course_id}", params: {}, headers: headers
+      get "/courses/#{course_id}", params: {include: included_associations}, headers: headers
     end
 
     context 'when the course exists' do
@@ -52,10 +53,19 @@ RSpec.describe "Courses", type: :request do
       end
     end
 
-    context 'when the course does not exist' do
+    context 'when course does not exist' do
       let(:course_id){ 99999999 }
       it 'returns status 404' do
         expect(response).to have_http_status(:not_found)
+      end
+    end
+
+    context 'when course has associations' do
+      let(:included_associations){ 'students' }
+      let(:course_id){ create(:course, :with_students).id }
+
+      it 'returns json data with associations as per json:api spec' do
+        expect(json_body).to be_jsonapi_assoc_match('courses')
       end
     end
   end

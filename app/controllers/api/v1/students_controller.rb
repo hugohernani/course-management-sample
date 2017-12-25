@@ -4,11 +4,11 @@ module Api
       def index
         @students = Student.ransack(params[:q]).result
 
-        paginate json: @students
+        paginate json: @students, include: params[:include]
       end
 
       def show
-        render json: student
+        render json: student, include: params[:include]
       end
 
       def create

@@ -4,11 +4,11 @@ module Api
       def index
         @courses = Course.ransack(params[:q]).result
 
-        paginate json: @courses
+        paginate json: @courses, include: params[:include]
       end
 
       def show
-        render json: course
+        render json: course, include: params[:include]
       end
 
       def create

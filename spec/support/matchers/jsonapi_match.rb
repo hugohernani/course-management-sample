@@ -31,6 +31,7 @@ RSpec::Matchers.define :be_jsonapi_assoc_match do |model|
     parsed_actual = JSON.parse(actual, symbolize_names: true) rescue actual
     parsed_actual.dig(:data, :type) == model &&
       parsed_actual.dig(:data, :attributes).is_a?(Hash) &&
-      parsed_actual.dig(:data, :relationships).is_a?(Hash)
+      parsed_actual.dig(:data, :relationships).is_a?(Hash) &&
+      parsed_actual.dig(:included).is_a?(Array)
   end
 end
