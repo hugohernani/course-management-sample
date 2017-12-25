@@ -23,9 +23,9 @@ module Api
 
       def update
         if student.update(student_attributes)
-          render json: @student, status: :ok, location: [:api, :v1, @student]
+          render json: student, status: :ok, location: [:api, :v1, student]
         else
-          respond_with_errors(@student)
+          respond_with_errors(student)
         end
       end
 
