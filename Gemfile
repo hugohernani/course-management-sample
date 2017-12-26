@@ -54,6 +54,7 @@ gem 'ransack', '~> 1.8.3'
 # Worker
 gem 'sinatra', github: 'sinatra/sinatra', ref: "88a1ba7bfb2262b68391d2490dbb440184b9f838"
 gem 'sidekiq', '~> 5.0.5'
+gem 'sidekiq-status', '~> 0.7.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

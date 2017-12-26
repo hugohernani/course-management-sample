@@ -5,7 +5,12 @@ Rails.application.routes.draw do
     namespace :v1, path: '', constraints: ApiVersionConstraint.new(version: 1) do
       resources :teachers
       resources :students
-      resources :courses
+      resources :courses do
+        collection do
+          post 'assign_entity', to: 'courses/assign_entity#create'
+          delete 'unassign_entity', to: 'courses/assign_entity#destroy'
+        end
+      end
     end
   end
 end
