@@ -29,3 +29,5 @@ Procfile.dev
 .rspec
 
 *.bak
+
+public/documentation/*

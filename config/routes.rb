@@ -1,8 +1,10 @@
 require 'api_version_constraint'
 
 Rails.application.routes.draw do
+  mount SwaggerUiEngine::Engine, at: "/documentation"
+
   namespace :api, defaults: { format: :json }, contraints: { subdomain: 'api' }, path: '/' do
-    namespace :v1, path: '', constraints: ApiVersionConstraint.new(version: 1) do
+    namespace :v1, path: '', constraints: ApiVersionConstraint.new(version: 1, default: true) do
       resources :teachers
       resources :students
       resources :courses do

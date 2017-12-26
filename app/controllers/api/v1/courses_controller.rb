@@ -1,6 +1,8 @@
 module Api
   module V1
-    class CoursesController < ApplicationController
+    class CoursesController < BaseController
+      include SwaggerDocs::V1::Courses
+
       def index
         @courses = Course.ransack(params[:q]).result
 

@@ -1,6 +1,8 @@
 module Api
   module V1
-    class StudentsController < ApplicationController
+    class StudentsController < BaseController
+      include SwaggerDocs::V1::Students
+
       def index
         @students = Student.ransack(params[:q]).result
 

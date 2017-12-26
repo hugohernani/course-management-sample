@@ -1,7 +1,9 @@
 module Api
   module V1
     module Courses
-      class AssignEntityController < ApplicationController
+      class AssignEntityController < BaseController
+        include SwaggerDocs::V1::Courses::AssignEntity
+
         def create
           job = AssignAndNotifyEntityJob.perform_later(course, teacher, student)
           render json: JobStatusSerializer.serialize(job), status: :accepted

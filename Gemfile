@@ -35,8 +35,9 @@ gem 'rack-attack'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
-# APi documentation
+# API documentation
 gem 'swagger-docs'
+gem 'swagger_ui_engine', '~> 1.1.0'
 
 # Use Factory Girl for generating random test data
 gem 'factory_bot_rails', '~> 4.8.2'
