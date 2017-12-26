@@ -19,7 +19,7 @@ FactoryBot.define do
       end
 
       after :build do |course, evaluator|
-        course.students << build_list(:teacher, evaluator.n_teachers)
+        course.teachers << build_list(:teacher, evaluator.n_teachers)
       end
     end
   end
