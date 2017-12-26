@@ -31,8 +31,8 @@ Essa api é *versionada* (apenas uma versão presente) e segue o padrão  [json:
   * `Content-Type` => `application/vnd.api+json`
 
 ## Como rodar a suíte de testes?
-Este projeto projeto usa `Rspec`, `Shoulda Matches`, `FactoryBot` e `Simple Coverage` em sua suíte de testes.
-Para rodar essa suíte utilize o seguinte comando: `COVERAGE=on rspec`
+Este projeto usa `Rspec`, `Shoulda Matchers`, `FactoryBot` e `Simple Coverage` em sua suíte de testes.
+Para rodar a suíte utilize o seguinte comando: `COVERAGE=on rspec`
 
 ## TODOs
 * Incluir mecanismos de buscas usando `ElasticSearch`
